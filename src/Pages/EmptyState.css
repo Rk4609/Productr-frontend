@@ -1,0 +1,68 @@
+/* Center wrapper
+.empty-wrapper {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+.empty-box {
+  width: 335px;
+  padding: 24px;
+  text-align: center;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.icon-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+}
+
+.grid-icon {
+  font-size: 36px;
+  color: #1e40af;
+}
+
+.plus-icon {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  font-size: 16px;
+  color: #1e40af;
+  background: white;
+  border-radius: 50%;
+}
+
+
+.empty-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty-box p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+
+.add-btn {
+  width: 100%;
+  padding: 10px;
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-btn:hover {
+  background: #1e40af;
+} */

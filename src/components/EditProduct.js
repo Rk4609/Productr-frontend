@@ -1,0 +1,146 @@
+import { useState } from "react"
+import "./AddProduct.css"   // same CSS reuse kar sakta hai
+
+const EditProduct = ({ product, onClose }) => {
+  const [formData, setFormData] = useState({
+    productName: product.productName,
+    type: product.type,
+    quantity: product.quantity,
+    mrp: product.mrp,
+    sellingPrice: product.sellingPrice,
+    brand: product.brand,
+    isReturnable: product.isReturnable,
+    isPublished: product.isPublished,
+    images: [],
+  })
+
+  const handleChange = (e) => {
+    const { name, value, type, files } = e.target
+
+    if (type === "file") {
+      setFormData({ ...formData, images: files })
+    } else if (name === "isReturnable") {
+      setFormData({ ...formData, isReturnable: value === "true" })
+    } else if (name === "isPublished") {
+      setFormData({ ...formData, isPublished: value === "true" })
+    } else {
+      setFormData({ ...formData, [name]: value })
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const data = new FormData()
+
+    Object.keys(formData).forEach((key) => {
+      if (key === "images") {
+        for (let img of formData.images) {
+          data.append("images", img)
+        }
+      } else {
+        data.append(key, formData[key])
+      }
+    })
+
+    const res = await fetch(
+      `http://localhost:3000/api/v2/products/${product._id}`,
+      {
+        method: "PUT",
+        body: data,
+      }
+    )
+
+    const result = await res.json()
+
+    if (result.success) {
+      alert("✅ Product Updated")
+      onClose()
+    } else {
+      alert("❌ Update failed")
+    }
+  }
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-box">
+        <h3>Edit Product</h3>
+
+        <form onSubmit={handleSubmit}>
+          <label>Product Name</label>
+          <input
+            name="productName"
+            value={formData.productName}
+            onChange={handleChange}
+          />
+
+          <label>Product Type</label>
+          <select
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+          >
+            <option value="Food">Food</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Others">Others</option>
+          </select>
+
+          <label>Quantity</label>
+          <input
+            type="number"
+            name="quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+          />
+
+          <label>MRP</label>
+          <input
+            type="number"
+            name="mrp"
+            value={formData.mrp}
+            onChange={handleChange}
+          />
+
+          <label>Selling Price</label>
+          <input
+            type="number"
+            name="sellingPrice"
+            value={formData.sellingPrice}
+            onChange={handleChange}
+          />
+
+          <label>Brand</label>
+          <input
+            name="brand"
+            value={formData.brand}
+            onChange={handleChange}
+          />
+
+          <label>Upload New Images (optional)</label>
+          <input type="file" name="images" multiple onChange={handleChange} />
+
+          <label>Returnable</label>
+          <select
+            name="isReturnable"
+            value={formData.isReturnable.toString()}
+            onChange={handleChange}
+          >
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+
+          <div className="modal-actions">
+            <button type="button" onClick={onClose}>
+              Cancel
+            </button>
+            <button type="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default EditProduct

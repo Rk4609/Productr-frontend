@@ -1,0 +1,144 @@
+.login-container {
+  display: flex;
+  /* width: 100vh; */
+  height: 100vh;
+  background: #f8fafc;
+overflow-y: auto;
+}
+
+
+.login-left {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 32px;
+  margin-top: 32px;
+  /* margin-bottom: 30p; */
+  /* padding-bottom: 80px; */
+}
+
+.card p {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+/* .login-right {
+  
+  height: 100vh;
+ 
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 80px;
+  margin-left: 150px;
+
+}
+
+.login-right input {
+  width: 376px;
+  
+  padding: 10px;
+  margin-bottom: 20px;
+} */
+
+/* .login-right button {
+  width: 376px;
+  height: 40px;
+  padding: 12px;
+  background: #071074;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  
+} */
+
+.signup-box {
+  width: 376px;
+  margin-top: 200px;
+  padding-bottom: 10px;
+  border-radius: 2px;
+  margin-right: 320px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+  flex-direction: column;
+  /* text-decoration: none; */
+
+}
+
+
+.login-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  padding: 0 80px;
+}
+
+.login-right h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* labels */
+.login-right label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* inputs */
+.login-right input {
+  width: 100%;
+  max-width: 380px;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* button */
+.login-right button {
+  width: 100%;
+  max-width: 380px;
+  height: 42px;
+  background: #071074;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-right button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* signup box */
+.signup-box {
+  margin-top: 40px;
+  max-width: 380px;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  font-weight: 500;
+}
+
+.signup-box a {
+  margin-top: 6px;
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+}
