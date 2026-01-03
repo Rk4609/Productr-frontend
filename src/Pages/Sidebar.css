@@ -129,25 +129,4 @@
 
 
 
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-  }
 
-  .right-section {
-    margin-left: 200px;
-    width: calc(100% - 200px);
-  }
-}
-
-@media (max-width: 576px) {
-  .sidebar {
-    position: absolute;
-    transform: translateX(-100%);
-  }
-
-  .right-section {
-    margin-left: 0;
-    width: 100%;
-  }
-}
