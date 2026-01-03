@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBox, faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from "react-router-dom"
 
-const Topbar = () => {
+const Topbar = ({onMenuClick}) => {
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef(null)
   const navigate = useNavigate()
@@ -34,10 +34,21 @@ const Topbar = () => {
   return (
     <div className="topbar">
       <header className="top-bar">
-        <p>
+        <div className="top-left">
+    <button className="hamburger" onClick={onMenuClick}>
+      ☰
+    </button>
+
+    <p>
+      <FontAwesomeIcon icon={faBox} className="icon" />
+      Product
+    </p>
+  </div>
+        
+        {/* <p>
           <FontAwesomeIcon icon={faBox} className="icon" />
           Product
-        </p>
+        </p> */}
 
         <div className="profile-wrapper" ref={dropdownRef}>
           <img

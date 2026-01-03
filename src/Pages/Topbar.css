@@ -97,3 +97,38 @@
   background: #e2e8f0;
 }
 
+
+
+
+
+
+
+
+
+
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .topbar {
+    left: 0; /* sidebar nahi hai mobile me */
+  }
+}
