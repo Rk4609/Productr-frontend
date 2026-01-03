@@ -115,3 +115,72 @@ overflow-y: auto;
   font-weight: 600;
   text-decoration: none;
 }
+
+
+
+
+/* ===============================
+   📱 LOGIN PAGE MOBILE ONLY
+   Desktop pe ZERO effect
+   =============================== */
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Left image section */
+  .login-left {
+    height: 220px;
+    margin: 16px;
+    border-radius: 16px;
+  }
+
+  .login-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  /* Right form section */
+  .login-right {
+    padding: 24px 20px;
+    justify-content: flex-start;
+  }
+
+  .login-right h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .login-right label {
+    font-size: 13px;
+  }
+
+  .login-right input {
+    max-width: 100%;
+  }
+
+  .login-right button {
+    max-width: 100%;
+    margin-top: 8px;
+  }
+
+  /* Signup box */
+  .signup-box {
+    margin-top: 28px;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .signup-box p {
+    font-size: 13px;
+  }
+
+  .signup-box a {
+    font-size: 14px;
+  }
+}

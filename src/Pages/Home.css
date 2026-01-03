@@ -1,4 +1,4 @@
-
+/* 
 .panel1 {
   height: 35px;
   position: fixed;
@@ -12,7 +12,7 @@
   background: #f8fafc;
 }
 
-/* normal tab */
+
 .tab {
   text-decoration: none;
   color: #475569;
@@ -20,14 +20,14 @@
   padding-bottom: 6px;
 }
 
-/* active tab */
+
 .active-tab {
   color: #1d4ed8;
   font-weight: 600;
   border-bottom: 2px solid #1d4ed8;
 }
 
-/* content area */
+
 .outlet {
   margin-top: 70px;
   padding: 20px;
@@ -35,4 +35,56 @@
   overflow-y: auto;
   background: #f8fafc;
 }
+ */
 
+
+
+ /* ===== MAIN LAYOUT ===== */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* ===== RIGHT SECTION ===== */
+.right-section {
+  margin-left: 240px; /* sidebar width */
+  width: calc(100% - 240px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== TOP TABS BAR ===== */
+.panel1 {
+  position: sticky;
+  top: 62px; /* topbar height */
+  display: flex;
+  gap: 24px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 5;
+}
+
+/* Tabs */
+.tab {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  padding-bottom: 6px;
+}
+
+.active-tab {
+  color: #2563eb;
+  font-weight: 600;
+  border-bottom: 2px solid #2563eb;
+}
+
+/* ===== PAGE CONTENT ===== */
+.outlet {
+  flex: 1;
+  padding: 20px;
+  background: #f8fafc;
+  overflow-y: auto;
+}
