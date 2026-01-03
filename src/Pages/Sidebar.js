@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faBox } from "@fortawesome/free-solid-svg-icons"
 import { NavLink } from "react-router-dom"
 
-const Sidebar = () => {
+const Sidebar = ({isOpen,onClose}) => {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="img">
         <img src="/assets/logo.png" alt="logo" className="log" />
         {/* <input
@@ -24,6 +24,7 @@ const Sidebar = () => {
           className={({ isActive }) =>
             isActive ? "nav-item active-nav" : "nav-item"
           }
+          onClick={onClose}
         >
           <FontAwesomeIcon icon={faHouse} className="icon" />
           Home
@@ -34,6 +35,7 @@ const Sidebar = () => {
           className={({ isActive }) =>
             isActive ? "nav-item active-nav" : "nav-item"
           }
+          onClick={onClose}
         >
           <FontAwesomeIcon icon={faBox} className="icon" />
           Product
