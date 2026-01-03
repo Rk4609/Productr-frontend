@@ -64,7 +64,7 @@ overflow-y: auto;
 
 /* labels */
 .login-right label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   margin-bottom: 6px;
 }
@@ -83,7 +83,7 @@ overflow-y: auto;
 /* button */
 .login-right button {
   width: 100%;
-  max-width: 380px;
+  max-width: 405px;
   height: 42px;
   background: #071074;
   color: white;
@@ -91,6 +91,7 @@ overflow-y: auto;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .login-right button:disabled {

@@ -46,7 +46,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-left">
-        <img src="/assets/frame.png" className="login-left" alt="frame" />
+        <img src="/assets/admin3.jpg" className="login-left" alt="frame" />
         <div className="card">
           <p>Uplift your product to market</p>
         </div>
@@ -54,7 +54,7 @@ const LoginPage = () => {
 
       
       <div className="login-right">
-        <h2>Welcome to Admin</h2>
+        <h2>Welcome to AdminX</h2>
 
         <label>Email or Phone number</label>
         <input
