@@ -130,3 +130,9 @@
 
 
 
+/* 📱 Mobile Sidebar Fix */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+}

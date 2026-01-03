@@ -88,3 +88,12 @@
   background: #f8fafc;
   overflow-y: auto;
 }
+
+
+/* 📱 Mobile Layout Fix */
+@media (max-width: 768px) {
+  .right-section {
+    margin-left: 0;
+    width: 100%;
+  }
+}
