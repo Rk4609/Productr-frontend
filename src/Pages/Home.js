@@ -88,6 +88,17 @@ const confirmDeleteProduct = async () => {
     setDeleteId(null)
   }
 }
+
+
+  //  Product update without refresh
+const onUpdateProduct = (updatedProduct) => {
+  setProducts(prev =>
+    prev.map(p =>
+      p._id === updatedProduct._id ? updatedProduct : p
+    )
+  )
+}
+
   return (
     <div className="layout">
       <Sidebar />
@@ -117,6 +128,7 @@ const confirmDeleteProduct = async () => {
       setShowEditModal(false)
       setSelectedProduct(null)
     }}
+    onUpdate={onUpdateProduct}
   />
 )}
 
