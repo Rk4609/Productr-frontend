@@ -39,9 +39,9 @@ const Topbar = ({onMenuClick}) => {
       ☰
     </button>
 
-    <p>
-      <FontAwesomeIcon icon={faBox} className="icon" />
-      Product
+    <p className="pms" style={{fontWeight:500,fontSize:20}}>
+      <FontAwesomeIcon icon={faBox} className="icon" style={{fontSize:20}}/>
+      Product Management System
     </p>
   </div>
         

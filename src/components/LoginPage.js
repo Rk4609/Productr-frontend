@@ -54,7 +54,7 @@ const LoginPage = () => {
 
       
       <div className="login-right">
-        <h2>Welcome to Productr Account</h2>
+        <h2>Welcome to Admin</h2>
 
         <label>Email or Phone number</label>
         <input
