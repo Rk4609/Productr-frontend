@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faBox } from "@fortawesome/free-solid-svg-icons"
 import { NavLink } from "react-router-dom"
 
-const Sidebar = ({ search, setSearch }) => {
+const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="img">

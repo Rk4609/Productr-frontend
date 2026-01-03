@@ -6,14 +6,12 @@ import { Outlet, NavLink } from "react-router-dom"
 import "./Home.css"
 
 const Home = () => {
-
   const [products, setProducts] = useState([])
   const [showEditModal, setShowEditModal] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [deleteId, setDeleteId] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
 
   const handleEdit = (product) => {
     setSelectedProduct(product)
@@ -77,11 +75,10 @@ const Home = () => {
 
   return (
     <div className="layout">
-      <Sidebar isOpen={sidebarOpen}
-  onClose={() => setSidebarOpen(false)}/>
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="right-section">
-        <Topbar onMenuClick={() => setSidebarOpen(true)}/>
+        <Topbar onMenuClick={() => setSidebarOpen(true)} />
 
         <div className="panel1">
           <NavLink
