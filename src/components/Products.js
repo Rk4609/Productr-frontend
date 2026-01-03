@@ -69,6 +69,14 @@ const Product = () => {
     }
   }
 
+  const onUpdateProduct = (updatedProduct) => {
+    if (!updatedProduct || !updatedProduct._id) return
+
+    setProducts((prev) =>
+      prev.map((p) => (p._id === updatedProduct._id ? updatedProduct : p))
+    )
+  }
+
   return (
     <div className="p-main">
       <div className="header">
@@ -156,8 +164,8 @@ const Product = () => {
           onClose={() => {
             setShowEditModal(false)
             setSelectedProduct(null)
-            fetchProducts()
           }}
+          onUpdate={onUpdateProduct} 
         />
       )}
 

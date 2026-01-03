@@ -28,35 +28,8 @@ overflow-y: auto;
 }
 
 
-/* .login-right {
-  
-  height: 100vh;
+
  
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 80px;
-  margin-left: 150px;
-
-}
-
-.login-right input {
-  width: 376px;
-  
-  padding: 10px;
-  margin-bottom: 20px;
-} */
-
-/* .login-right button {
-  width: 376px;
-  height: 40px;
-  padding: 12px;
-  background: #071074;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  
-} */
 
 .signup-box {
   width: 376px;

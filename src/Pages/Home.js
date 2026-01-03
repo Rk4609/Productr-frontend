@@ -47,23 +47,6 @@ const handleEdit = (product) => {
     )
   }
 
-
-//   const deleteProduct = async (id) => {
-//   const confirmDelete = window.confirm("Are you sure you want to delete?");
-//   if (!confirmDelete) return;
-
-//   const res = await fetch(
-//     `${process.env.REACT_APP_API_URL}/api/v2/products/${id}`,
-//     { method: "DELETE" }
-//   );
-
-//   const result = await res.json();
-
-//   if (result.success) {
-//     setProducts(prev => prev.filter(p => p._id !== id));
-//   }
-// };
-
 const deleteProduct = (id) => {
   setDeleteId(id)
   setShowDeleteModal(true)
