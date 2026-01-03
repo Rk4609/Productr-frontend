@@ -41,7 +41,7 @@ const Signup = () => {
         setUsername('');
         setEmail('');
         setPassword('');
-        navigate("/")
+        navigate("/home/published")
       } else {
         const errorText = await response.json();
         alert("Error: " + errorText);

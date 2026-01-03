@@ -31,6 +31,7 @@ const LoginPage = () => {
 
       if (res.ok) {
         localStorage.setItem("accessToken", data.data.accessToken);
+        localStorage.setItem("admin", JSON.stringify(data.data.admin))
         navigate("/home/published");
       } else {
         alert(data.message || "Login failed");
@@ -44,8 +45,6 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
-      
-     
       <div className="login-left">
         <img src="/assets/frame.png" className="login-left" alt="frame" />
         <div className="card">

@@ -13,6 +13,8 @@ const Home = () => {
 
   const [showEditModal, setShowEditModal] = useState(false)
 const [selectedProduct, setSelectedProduct] = useState(null)
+const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [deleteId, setDeleteId] = useState(null)
 
 const handleEdit = (product) => {
   setSelectedProduct(product)
@@ -46,22 +48,46 @@ const handleEdit = (product) => {
   }
 
 
-  const deleteProduct = async (id) => {
-  const confirmDelete = window.confirm("Are you sure you want to delete?");
-  if (!confirmDelete) return;
+//   const deleteProduct = async (id) => {
+//   const confirmDelete = window.confirm("Are you sure you want to delete?");
+//   if (!confirmDelete) return;
 
-  const res = await fetch(
-    `${process.env.REACT_APP_API_URL}/api/v2/products/${id}`,
-    { method: "DELETE" }
-  );
+//   const res = await fetch(
+//     `${process.env.REACT_APP_API_URL}/api/v2/products/${id}`,
+//     { method: "DELETE" }
+//   );
 
-  const result = await res.json();
+//   const result = await res.json();
 
-  if (result.success) {
-    setProducts(prev => prev.filter(p => p._id !== id));
+//   if (result.success) {
+//     setProducts(prev => prev.filter(p => p._id !== id));
+//   }
+// };
+
+const deleteProduct = (id) => {
+  setDeleteId(id)
+  setShowDeleteModal(true)
+}
+
+const confirmDeleteProduct = async () => {
+  try {
+    const res = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/v2/products/${deleteId}`,
+      { method: "DELETE" }
+    )
+
+    const result = await res.json()
+
+    if (result.success) {
+      setProducts(prev => prev.filter(p => p._id !== deleteId))
+    }
+  } catch (error) {
+    alert("❌ Failed to delete product")
+  } finally {
+    setShowDeleteModal(false)
+    setDeleteId(null)
   }
-};
-
+}
   return (
     <div className="layout">
       <Sidebar />
@@ -90,9 +116,33 @@ const handleEdit = (product) => {
     onClose={() => {
       setShowEditModal(false)
       setSelectedProduct(null)
-      // optional re-fetch if needed
     }}
   />
+)}
+
+{showDeleteModal && (
+  <div className="delete-overlay">
+    <div className="delete-modal">
+      <h3>Delete Product</h3>
+      <p>Are you sure you want to delete this product?</p>
+
+      <div className="delete-actions">
+        <button
+          className="cancel-btn"
+          onClick={() => setShowDeleteModal(false)}
+        >
+          Cancel
+        </button>
+        <button
+          className="confirm-btn"
+          onClick={confirmDeleteProduct}
+        >
+          Delete
+        </button>
+
+      </div>
+    </div>
+  </div>
 )}
 
       </div>

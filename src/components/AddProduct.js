@@ -150,12 +150,6 @@ const AddProduct = ({ onClose }) => {
             <option value="false">No</option>
           </select>
 
-          {/* <label>Publish Product</label>
-          <select name="isPublished" onChange={handleChange}  required >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select> */}
-
           <div className="modal-actions">
             <button type="button" onClick={onClose}>
               Cancel
