@@ -32,7 +32,7 @@ const LoginPage = () => {
       if (res.ok) {
         localStorage.setItem("accessToken", data.data.accessToken);
         localStorage.setItem("admin", JSON.stringify(data.data.admin))
-        navigate("/products");
+        navigate("/productcard");
       } else {
         alert(data.message || "Login failed");
       }
