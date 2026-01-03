@@ -256,3 +256,64 @@
 .add-btn:hover {
   background: #1e40af;
 }
+
+
+
+
+/* resposnive */
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  /* Header stack */
+  .product-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .header-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Full width search */
+  .search-box input {
+    width: 100%;
+  }
+
+  /* Full width add button */
+  .add-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Product grid single column */
+  .product-grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  /* Card spacing */
+  .product-card {
+    padding: 14px;
+  }
+
+  /* Buttons stack nicely */
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .edit-btn,
+  .publish-btn {
+    width: 100%;
+  }
+
+  .delete-btn {
+    width: 48px;
+  }
+}
