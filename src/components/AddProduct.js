@@ -2,6 +2,10 @@ import { useState } from "react"
 import "./AddProduct.css"
 
 const AddProduct = ({ onClose }) => {
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+
   const [formData, setFormData] = useState({
     productName: "",
     type: "Food",
@@ -22,7 +26,6 @@ const AddProduct = ({ onClose }) => {
     } else if (type === "checkbox") {
       setFormData({ ...formData, [name]: checked })
     } else if (name === "isReturnable") {
-      // 🔥 Yes / No → boolean
       setFormData({ ...formData, isReturnable: value === "true" })
     } else if (name === "isPublished") {
       setFormData({ ...formData, isPublished: value === "true" })
@@ -31,10 +34,12 @@ const AddProduct = ({ onClose }) => {
     }
   }
 
-  // 🔹 3. Submit handler
+  //  Submit handler
   const handleSubmit = async (e) => {
-    e.preventDefault()
+  e.preventDefault()
+  setLoading(true)
 
+  try {
     const data = new FormData()
 
     Object.keys(formData).forEach((key) => {
@@ -47,22 +52,37 @@ const AddProduct = ({ onClose }) => {
       }
     })
 
-    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v2/products`, {
-      method: "POST",
-      body: data,
-    })
+    const res = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/v2/products`,
+      {
+        method: "POST",
+        body: data,
+      }
+    )
 
     const result = await res.json()
 
-    if (result.success) {
-      alert("✅ Product Created")
-      onClose()
+    if (res.ok && result.success) {
+      setShowSuccess(true)
+
+      setTimeout(() => {
+        setShowSuccess(false)
+        onClose()
+      }, 2000)
     } else {
-      alert("❌ Error while creating product")
+      alert(result.message || "❌ Product create failed")
     }
+  } catch (error) {
+    console.error(error)
+    alert("❌ Server error. Please try again.")
+  } finally {
+    setLoading(false)
   }
+}
+
 
   return (
+    <>
     <div className="modal-overlay">
       <div className="modal-box">
         <h3>Add Product</h3>
@@ -140,11 +160,23 @@ const AddProduct = ({ onClose }) => {
             <button type="button" onClick={onClose}>
               Cancel
             </button>
-            <button type="submit">Create</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Creating..." : "Create" }
+            </button>
           </div>
         </form>
       </div>
+
+    
+
     </div>
+      {showSuccess && (
+  <div className="success-toast">
+    ✅ Product created successfully
+  </div>
+)}
+    </>
+    
   )
 }
 

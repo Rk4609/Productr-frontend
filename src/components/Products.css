@@ -115,3 +115,63 @@ p {
   justify-content: space-evenly;
 } */
 
+
+.delete-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.delete-modal {
+  width: 360px;
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.delete-modal h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.delete-modal p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.delete-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cancel-btn {
+  flex: 1;
+  background: #e5e7eb;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  flex: 1;
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background: #b91c1c;
+}
