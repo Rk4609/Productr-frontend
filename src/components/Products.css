@@ -1,20 +1,30 @@
 .products-page {
   padding: 20px;
 }
+.p-main{
+  height: 100vh;
+  /* padding-bottom: 80px; */
+}
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   /* margin-top: 20px; */
 }
+
+/* .product-info p{
+  gap: 4px 0px;
+  line-height: 1.4;
+} */
 
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
   gap: 20px;
   justify-content: start;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-bottom: 20px;
 }
 
@@ -26,7 +36,7 @@
 
 .product-card img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
 }
 
@@ -115,62 +125,3 @@ p {
   justify-content: space-evenly;
 } */
 
-.delete-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.delete-modal {
-  width: 360px;
-  background: #fff;
-  padding: 22px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.delete-modal h3 {
-  margin-bottom: 8px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.delete-modal p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 18px;
-}
-
-.delete-actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.cancel-btn {
-  flex: 1;
-  background: #e5e7eb;
-  border: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.confirm-btn {
-  flex: 1;
-  background: #dc2626;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.confirm-btn:hover {
-  background: #b91c1c;
-}

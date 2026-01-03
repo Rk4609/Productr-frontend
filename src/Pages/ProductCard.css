@@ -15,7 +15,8 @@
 .content,
 .outlet {
   margin-top: 64px; /* topbar height */
-  padding: 20px;
+  /* padding: 20px; */
+  padding-left: 20px;
   height: calc(100vh - 64px);
   overflow-y: auto;   /* 🔥 ONLY CONTENT SCROLLS */
   background: #f8fafc;

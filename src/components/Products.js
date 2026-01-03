@@ -50,25 +50,24 @@ const Product = () => {
     }
   }
   const confirmDeleteProduct = async () => {
-  try {
-    const res = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/v2/products/${deleteId}`,
-      { method: "DELETE" }
-    )
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/v2/products/${deleteId}`,
+        { method: "DELETE" }
+      )
 
-    const result = await res.json()
+      const result = await res.json()
 
-    if (result.success) {
-      setProducts(prev => prev.filter(p => p._id !== deleteId))
+      if (result.success) {
+        setProducts((prev) => prev.filter((p) => p._id !== deleteId))
+      }
+    } catch (error) {
+      alert("❌ Failed to delete product")
+    } finally {
+      setShowDeleteModal(false)
+      setDeleteId(null)
     }
-  } catch (error) {
-    alert("❌ Failed to delete product")
-  } finally {
-    setShowDeleteModal(false)
-    setDeleteId(null)
   }
-}
-
 
   return (
     <div className="p-main">
@@ -163,30 +162,25 @@ const Product = () => {
       )}
 
       {showDeleteModal && (
-  <div className="delete-overlay">
-    <div className="delete-modal">
-      <h3>Delete Product</h3>
-      <p>Are you sure you want to delete this product?</p>
+        <div className="delete-overlay">
+          <div className="delete-modal">
+            <h3>Delete Product</h3>
+            <p>Are you sure you want to delete this product?</p>
 
-      <div className="delete-actions">
-        <button
-          className="cancel-btn"
-          onClick={() => setShowDeleteModal(false)}
-        >
-          Cancel
-        </button>
-        <button
-          className="confirm-btn"
-          onClick={confirmDeleteProduct}
-        >
-          Delete
-        </button>
-
-      </div>
-    </div>
-  </div>
-)}
-
+            <div className="delete-actions">
+              <button
+                className="cancel-btn"
+                onClick={() => setShowDeleteModal(false)}
+              >
+                Cancel
+              </button>
+              <button className="confirm-btn" onClick={confirmDeleteProduct}>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
