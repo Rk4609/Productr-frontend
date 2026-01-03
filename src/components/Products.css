@@ -1,23 +1,12 @@
 .products-page {
   padding: 20px;
 }
-.p-main{
+.p-main {
   min-height: 100vh;
   /* padding-bottom: 80px; */
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  /* margin-top: 20px; */
-}
 
-/* .product-info p{
-  gap: 4px 0px;
-  line-height: 1.4;
-} */
 
 .product-grid {
   display: grid;
@@ -65,28 +54,12 @@
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-
 }
 
 .actions {
   gap: 6px;
 
   display: flex;
-}
-
-.add-btn {
-  background: #1d4ed8;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight:600 ;
-}
-
-.add-btn:hover {
-  background: #1e40af;
 }
 
 .publish-btn {
@@ -120,12 +93,10 @@
   font-weight: 500;
 } */
 
-
-.product-info p{
+.product-info p {
   font-weight: 500;
   /* justify-content: space-between; */
 }
-
 
 .delete-overlay {
   position: fixed;
@@ -144,9 +115,7 @@
   background: #ffffff;
   border-radius: 14px;
   padding: 26px 24px;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(226, 232, 240, 0.8);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(226, 232, 240, 0.8);
   animation: scaleIn 0.25s ease-out;
 }
 
@@ -219,4 +188,71 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* ===== Header Layout ===== */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+/* Page title */
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Right section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===== Search Box ===== */
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  width: 260px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  font-weight: 500;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== Add Button ===== */
+.add-btn {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #1e40af;
 }

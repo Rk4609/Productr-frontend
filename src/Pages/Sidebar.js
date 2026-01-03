@@ -1,16 +1,21 @@
-
 import React from "react"
 import "./Sidebar.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faBox } from "@fortawesome/free-solid-svg-icons"
 import { NavLink } from "react-router-dom"
 
-const Sidebar = () => {
+const Sidebar = ({ search, setSearch }) => {
   return (
     <div className="sidebar">
       <div className="img">
         <img src="/assets/logo.png" alt="logo" className="log" />
-        <input type="search" className="search" placeholder="Search" />
+        {/* <input
+          type="search"
+          className="search"
+          placeholder="Search Category"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        /> */}
       </div>
 
       <div className="pages">
@@ -39,4 +44,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-
