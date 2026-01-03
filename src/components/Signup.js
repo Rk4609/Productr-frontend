@@ -21,7 +21,7 @@ const Signup = () => {
     }
     // fetch to  POST request send
     try {
-      const response = await fetch("http://localhost:3000/api/v2/admin/signup", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v2/admin/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

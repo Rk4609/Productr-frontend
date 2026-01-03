@@ -47,7 +47,7 @@ const AddProduct = ({ onClose }) => {
       }
     })
 
-    const res = await fetch("http://localhost:3000/api/v2/products", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v2/products`, {
       method: "POST",
       body: data,
     })

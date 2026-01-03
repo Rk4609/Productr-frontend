@@ -18,18 +18,19 @@ const LoginPage = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:3000/api/v2/admin/login", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v2/admin/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        credentials: "include",
+        // credentials: "include",
         body: JSON.stringify({ email, password })
       });
 
       const data = await res.json();
 
       if (res.ok) {
+        localStorage.setItem("accessToken", data.data.accessToken);
         navigate("/home/published");
       } else {
         alert(data.message || "Login failed");

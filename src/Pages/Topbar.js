@@ -1,7 +1,7 @@
 import React from 'react'
 import './Topbar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHouse, faBox } from "@fortawesome/free-solid-svg-icons"
+import {  faBox } from "@fortawesome/free-solid-svg-icons"
 const Topbar = () => {
   return (
     <div className='topbar'>

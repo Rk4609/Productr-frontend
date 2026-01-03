@@ -15,7 +15,7 @@ const [selectedProduct, setSelectedProduct] = useState(null)
 
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:3000/api/v2/products")
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v2/products`)
     const result = await res.json()
 
     if (result.success) {
@@ -32,7 +32,7 @@ const [selectedProduct, setSelectedProduct] = useState(null)
 
   const togglePublish = async (id, currentStatus) => {
   const res = await fetch(
-    `http://localhost:3000/api/v2/products/${id}`,
+    `${process.env.REACT_APP_API_URL}/api/v2/products/${id}`,
     {
       method: "PUT",
       headers: {
@@ -57,7 +57,7 @@ const deleteProduct = async (id) => {
   if (!confirmDelete) return;
 
   const res = await fetch(
-    `http://localhost:3000/api/v2/products/${id}`,
+    `${process.env.REACT_APP_API_URL}/api/v2/products/${id}`,
     { method: "DELETE" }
   );
 

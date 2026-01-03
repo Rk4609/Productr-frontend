@@ -22,7 +22,7 @@ const handleEdit = (product) => {
 
   // 🔥 ek hi baar fetch
   useEffect(() => {
-    fetch("http://localhost:3000/api/v2/products")
+    fetch(`${process.env.REACT_APP_API_URL}/api/v2/products`)
       .then(res => res.json())
       .then(data => {
         if (data.success) setProducts(data.products)
@@ -31,7 +31,7 @@ const handleEdit = (product) => {
 
   // 🔁 publish / unpublish
   const togglePublish = async (id, status) => {
-    await fetch(`http://localhost:3000/api/v2/products/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/v2/products/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ isPublished: !status }),
@@ -51,7 +51,7 @@ const handleEdit = (product) => {
   if (!confirmDelete) return;
 
   const res = await fetch(
-    `http://localhost:3000/api/v2/products/${id}`,
+    `${process.env.REACT_APP_API_URL}/api/v2/products/${id}`,
     { method: "DELETE" }
   );
 
