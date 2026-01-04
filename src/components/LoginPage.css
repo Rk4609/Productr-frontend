@@ -129,6 +129,9 @@ overflow-y: auto;
   .login-container {
     flex-direction: column;
     height: auto;
+    overflow: hidden;
+    padding: 20px;
+    
   }
 
   /* Left image section */
@@ -136,6 +139,7 @@ overflow-y: auto;
     height: 220px;
     margin: 16px;
     border-radius: 16px;
+    /* align-items: center; */
   }
 
   .login-left img {
@@ -143,12 +147,18 @@ overflow-y: auto;
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
+    /* justify-content: center; */
+    /* align-items: center; */
   }
 
   /* Right form section */
   .login-right {
-    padding: 24px 20px;
+    /* padding: 20px 20px; */
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
     justify-content: flex-start;
+    padding: 0;
+    /* margin-left: 24px; */
   }
 
   .login-right h2 {
@@ -162,12 +172,13 @@ overflow-y: auto;
   }
 
   .login-right input {
-    max-width: 100%;
+    max-width: 92%;
   }
 
   .login-right button {
     max-width: 100%;
     margin-top: 8px;
+    padding: 0;
   }
 
   /* Signup box */
@@ -175,6 +186,7 @@ overflow-y: auto;
     margin-top: 28px;
     max-width: 100%;
     margin-right: 0;
+    padding: 0;
   }
 
   .signup-box p {

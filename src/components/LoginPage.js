@@ -47,9 +47,9 @@ const LoginPage = () => {
     <div className="login-container">
       <div className="login-left">
         <img src="/assets/admin3.jpg" className="login-left" alt="frame" />
-        <div className="card">
+        {/* <div className="card">
           <p>Uplift your product to market</p>
-        </div>
+        </div> */}
       </div>
 
       
