@@ -1,75 +1,103 @@
-import React, { useState } from "react";
-import "./LoginPage.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react"
+import "./LoginPage.css"
+import { NavLink, useNavigate } from "react-router-dom"
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-
-  const [identifier, setIdentifier] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+  const [errors, setErrors] = useState({})
+  const [identifier, setIdentifier] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = async () => {
-    if (!identifier || !password) {
-      alert("Email and Password required");
-      return;
+    let newErrors = {}
+
+    if (!identifier.trim()) {
+      newErrors.identifier = "Email or Username is required"
     }
+
+    if (!password.trim()) {
+      newErrors.password = "Password is required"
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return
+    }
+    setErrors({})
 
     try {
-      setLoading(true);
+      setLoading(true)
 
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/v2/admin/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        // credentials: "include",
-        body: JSON.stringify({ identifier, password })
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/v2/admin/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ identifier, password }),
+        }
+      )
 
-      const data = await res.json();
+      const data = await res.json()
 
       if (res.ok) {
-        localStorage.setItem("accessToken", data.data.accessToken);
+        localStorage.setItem("accessToken", data.data.accessToken)
         localStorage.setItem("admin", JSON.stringify(data.data.admin))
-        navigate("/productcard");
+        navigate("/productcard")
       } else {
-        alert(data.message || "Login failed");
+        setErrors({ form: data.message })
       }
     } catch (error) {
-      alert("Server error");
+      setErrors({ form: "Invalid email/username or password." })
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="login-container">
       <div className="login-left">
         <img src="/assets/admin3.jpg" className="login-left" alt="frame" />
-        {/* <div className="card">
-          <p>Uplift your product to market</p>
-        </div> */}
       </div>
 
-      
       <div className="login-right">
         <h2>Welcome to AdminX</h2>
+        {errors.form && <p className="form-error">{errors.form}</p>}
 
         <label>Email or Username</label>
         <input
-          placeholder="Enter your email"
+          className={errors.identifier ? "error" : ""}
+          placeholder="Enter your email or username"
           value={identifier}
-          onChange={(e) => setIdentifier(e.target.value)}
+          onChange={(e) => {
+            setIdentifier(e.target.value)
+
+            // typing start then error gone
+            if (errors.identifier) {
+              setErrors((prev) => ({ ...prev, identifier: "" }))
+            }
+          }}
         />
 
+        {errors.identifier && <p className="error-text">{errors.identifier}</p>}
+
         <label>Password</label>
+
         <input
           type="password"
+          className={errors.password ? "error" : ""}
           placeholder="Enter your password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value)
+
+            if (errors.password) {
+              setErrors((prev) => ({ ...prev, password: "" }))
+            }
+          }}
         />
+
+        {errors.password && <p className="error-text">{errors.password}</p>}
 
         <button
           type="button"
@@ -86,7 +114,7 @@ const LoginPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { LoginPage };
+export { LoginPage }
