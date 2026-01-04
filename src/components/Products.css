@@ -35,7 +35,7 @@
   border-radius: 8px;
   color: black;
   border: 1px solid black;
-  padding: 6px;
+  /* padding: 6px; */
   margin-right: 6px;
   font-size: 15px;
   font-weight: 500;
@@ -49,7 +49,7 @@
   border-radius: 8px;
   color: black;
   border: 1px solid black;
-  padding: 6px;
+  /* padding: 6px; */
   margin-right: 6px;
   font-size: 15px;
   font-weight: 500;
@@ -266,9 +266,8 @@
 
 
 /* ===============================
-   📱 MOBILE RESPONSIVE (ADD AT END)
-   Desktop pe ZERO effect
-   =============================== */
+    MOBILE RESPONSIVE (ADD AT END)
+   ==== */
 
 @media (max-width: 768px) {
   .product-header {
@@ -291,7 +290,7 @@
   }
 
   .search-box input {
-    width: 40%;
+    width: 50%;
     height: 25px;
     font-size: 10px;
   }
@@ -300,7 +299,7 @@
     width: 30%;
    height: 25px;
     font-size: 8px;
-    margin-top: 2px;
+    /* margin-top: 2px; */
   }
 
   .product-grid {
