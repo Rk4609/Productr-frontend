@@ -128,7 +128,27 @@
     display: block;
   }
 
+
   .topbar {
-    left: 0; /* sidebar nahi hai mobile me */
+
+    left: 0;
+    /* height: 40px; */
+    /* margin: 0; */
+    padding: 2px;
+    justify-content: space-between;
+    height: 40px;
+    
   }
+  .top-bar p{
+    margin: 0;
+    font-size: 15px;
+    /* width: 80px; */
+    height: 20px;
+  }
+   .profile-wrapper img{
+    width: 40px;
+    height: 35px;
+   }
+  
+
 }

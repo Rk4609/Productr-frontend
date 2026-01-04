@@ -34,8 +34,8 @@ const Topbar = () => {
   return (
     <div className="topbar">
       <header className="top-bar">
-        <p style={{fontWeight:500,fontSize:20}}>
-          <FontAwesomeIcon icon={faBox} className="icon" style={{fontSize:20}}/>
+        <p >
+          <FontAwesomeIcon icon={faBox} className="icon"/>
           Product Management
         </p>
 

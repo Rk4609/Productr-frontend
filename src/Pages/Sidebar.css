@@ -131,12 +131,14 @@
 
 
 
+
 /* 📱 Mobile Sidebar Fix */
-/* @media (max-width: 768px) {
+  @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
+    /* width: 20%; */
   }
-} */
+}  
 
 /* @media (max-width: 768px) {
   .sidebar {

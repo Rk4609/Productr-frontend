@@ -10,13 +10,6 @@ const Sidebar = () => {
       <div className="img" style={{display:"flex",justifyContent:"center",alignItems:"center",gap:4}}>
         <h2>AdminX</h2>
         <img src="/assets/Vector (1).png" alt="logo" className="log" style={{height:30,width:30}}/>
-        {/* <input
-          type="search"
-          className="search"
-          placeholder="Search Category"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        /> */}
       </div>
 
       <div className="pages">
