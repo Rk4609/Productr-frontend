@@ -7,6 +7,8 @@ const Signup = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState({})
+
   const [toast, setToast] = useState({
     show: false,
     message: "",
@@ -15,11 +17,36 @@ const Signup = () => {
 
   let navigate = useNavigate()
   const handleSignup = async () => {
-    // validation
-    if (!username || !email || !password || !fullName) {
-      alert("Please fill all fields!")
+    
+
+    let newErrors = {}
+
+    if (!fullName.trim()) {
+      newErrors.fullName = "Full name is required"
+    }
+
+    if (!username.trim()) {
+      newErrors.username = "Username is required"
+    }
+
+    if (!email.trim()) {
+      newErrors.email = "Email is required"
+    }
+
+    if (!password.trim()) {
+      newErrors.password = "Password is required"
+    }
+
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
       return
     }
+
+    
+    setErrors({})
+
+   
     // fetch to  POST request send
     try {
       const response = await fetch(
@@ -37,9 +64,8 @@ const Signup = () => {
           }),
         }
       )
-
+      const result = await response.json()
       if (response.ok) {
-        const result = await response.json()
         setFullName("")
         setUsername("")
         setEmail("")
@@ -56,12 +82,12 @@ const Signup = () => {
           navigate("/home/published")
         }, 2500)
       } else {
-        const errorText = await response.json()
-        alert("Error: " + errorText)
+        
+        setErrors({ form: result.message })
       }
     } catch (error) {
-      console.error("Error:", error)
-      alert("Failed to connect with backend!")
+      setErrors({ form: "Invalid email/username or password." })
+     
     }
   }
 
@@ -76,34 +102,78 @@ const Signup = () => {
       <div className={styles.loginsignup}>
         <div className={styles["loginsignup-container"]}>
           <h1>Sign Up</h1>
+          {errors.form && <p className={styles.formError}>{errors.form}</p>}
+
           <div className={styles["loginsignup-field"]}>
+            
             <input
               type="text"
-              placeholder="Enter Your fullName"
+              placeholder="Enter Your Full Name"
               value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              className={errors.fullName ? styles.error : ""}
+              onChange={(e) => {
+                setFullName(e.target.value)
+                if (errors.fullName) {
+                  setErrors((prev) => ({ ...prev, fullName: "" }))
+                }
+              }}
             />
+            {errors.fullName && (
+              <p className={styles.errorText}>{errors.fullName}</p>
+            )}
+
+           
+
             <input
               type="text"
-              placeholder="Enter Your username"
+              placeholder="Enter Your Username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              className={errors.username ? styles.error : ""}
+              onChange={(e) => {
+                setUsername(e.target.value)
+                if (errors.username) {
+                  setErrors((prev) => ({ ...prev, username: "" }))
+                }
+              }}
             />
+            {errors.username && (
+              <p className={styles.errorText}>{errors.username}</p>
+            )}
+
+           
             <input
               type="email"
               placeholder="Enter Your Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              className={errors.email ? styles.error : ""}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                if (errors.email) {
+                  setErrors((prev) => ({ ...prev, email: "" }))
+                }
+              }}
             />
+            {errors.email && <p className={styles.errorText}>{errors.email}</p>}
+
+            
             <input
               type="password"
               placeholder="Enter Your Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              className={errors.password ? styles.error : ""}
+              onChange={(e) => {
+                setPassword(e.target.value)
+                if (errors.password) {
+                  setErrors((prev) => ({ ...prev, password: "" }))
+                }
+              }}
             />
+            {errors.password && (
+              <p className={styles.errorText}>{errors.password}</p>
+            )}
 
             <button onClick={handleSignup}>SignUp</button>
-            <button onClick={()=>navigate("/")}>Back</button>
+            <button onClick={() => navigate("/")}>Back</button>
           </div>
 
           {/* <p className={styles["loginsignup-login"]}>
