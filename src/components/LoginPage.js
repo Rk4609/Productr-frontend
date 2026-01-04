@@ -5,12 +5,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-    if (!email || !password) {
+    if (!identifier || !password) {
       alert("Email and Password required");
       return;
     }
@@ -24,7 +24,7 @@ const LoginPage = () => {
           "Content-Type": "application/json"
         },
         // credentials: "include",
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ identifier, password })
       });
 
       const data = await res.json();
@@ -56,11 +56,11 @@ const LoginPage = () => {
       <div className="login-right">
         <h2>Welcome to AdminX</h2>
 
-        <label>Email or Phone number</label>
+        <label>Email or Username</label>
         <input
           placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={identifier}
+          onChange={(e) => setIdentifier(e.target.value)}
         />
 
         <label>Password</label>

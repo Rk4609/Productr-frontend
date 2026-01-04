@@ -102,7 +102,8 @@ const Signup = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button onClick={handleSignup}>Continue</button>
+            <button onClick={handleSignup}>SignUp</button>
+            <button onClick={()=>navigate("/")}>Back</button>
           </div>
 
           {/* <p className={styles["loginsignup-login"]}>
