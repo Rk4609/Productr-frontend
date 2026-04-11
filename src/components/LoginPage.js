@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./LoginPage.css"
-import { NavLink, useNavigate } from "react-router-dom"
+import {  NavLink,useNavigate } from "react-router-dom"
 
 const LoginPage = () => {
   const navigate = useNavigate()
@@ -43,7 +43,7 @@ const LoginPage = () => {
       if (res.ok) {
         localStorage.setItem("accessToken", data.data.accessToken)
         localStorage.setItem("admin", JSON.stringify(data.data.admin))
-        navigate("/productcard")
+        navigate("/home/published")
       } else {
         setErrors({ form: data.message })
       }
@@ -110,7 +110,8 @@ const LoginPage = () => {
 
         <div className="signup-box">
           <p>Don’t have a Productr Account</p>
-          <NavLink to="/signup">Signup here</NavLink>
+          <NavLink to="/" onClick={()=>navigate("/")}>Signup here</NavLink>
+          {/* <span onClick={()=> navigate("/")}>Signup here</span> */}
         </div>
       </div>
     </div>
