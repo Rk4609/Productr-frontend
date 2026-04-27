@@ -255,7 +255,7 @@ const Signup = () => {
 
       {/* RIGHT FORM */}
       <div className="login-right">
-        <h2>Create Account</h2>
+        <h2>Create AdminX Account</h2>
         {errors.form && <p className="form-error">{errors.form}</p>}
 
         <label>Full Name</label>
